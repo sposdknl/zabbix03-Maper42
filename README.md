@@ -23,3 +23,18 @@ pro registraci na server enceladus.
 - Vagrant [virtualbox internal network](https://developer.hashicorp.com/vagrant/docs/providers/virtualbox/networking#virtualbox-internal-network)
 
 ...
+
+
+# zmeny ve skriptu .vagrantfile
+
+# Interní síť (Zabbix appliance síť)
+        ubuntu.vm.network "private_network", ip: "192.168.1.3", virtualbox__intnet: true
+
+# zmeny ve skriptu config
+
+# Porovnání starého a nového configu
+sudo diff -u /etc/zabbix/zabbix_agent2.conf-orig /etc/zabbix/zabbix_agent2.conf
+ 
+# Restart agent2
+sudo systemctl restart zabbix-agent2
+ 
